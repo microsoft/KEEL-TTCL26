@@ -1,0 +1,28 @@
+[project]
+name = "skillflow"
+version = "0.1.0"
+description = "KEEL failure-aware single-trajectory skill evolution runner for SkillFlow"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "harbor @ git+https://github.com/laude-institute/harbor.git",
+    "litellm>=1.70.0",
+    "matplotlib>=3.9.0",
+    "numpy>=2.0.0",
+    "openai>=1.0.0",
+    "openpyxl>=3.1.0",
+    "pydantic>=2.8.0",
+    "pyyaml>=6.0.0",
+    "tenacity>=9.0.0",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 170
+
+[dependency-groups]
+dev = [
+    "mypy>=1.13.0",
+    "pre-commit>=4.0.0",
+    "ruff>=0.8.0",
+]
