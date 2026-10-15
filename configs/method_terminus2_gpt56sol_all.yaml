@@ -1,0 +1,49 @@
+job_name: keel-terminus2-gpt-5.6-sol
+
+agents:
+  - import_path: libs.azure_agents.terminus2_azure:AzureTerminus2
+    model_name: openai/gpt-5.6-sol
+    kwargs:
+      max_turns: 40
+      prompt_template_path: prompts/terminus2_actor.txt
+      record_terminal_session: false
+      skills_dir: /root/.agents/skills
+      suppress_max_turns_warning: true
+      reasoning_effort: high
+
+environment:
+  allow_internet: true
+  force_build: true
+  delete: true
+
+agent_setup_timeout_multiplier: 2.0
+environment_build_timeout_multiplier: 2.0
+
+retry:
+  max_retries: 1
+  include_exceptions:
+    - RuntimeError
+  min_wait_sec: 2.0
+  max_wait_sec: 10.0
+
+datasets:
+  - path: test_tasks/test_tasks/Compensation-Scenario-Modeling
+  - path: test_tasks/test_tasks/Cross-Format-Data-Reconciliation
+  - path: test_tasks/test_tasks/Distribution-Center-Auditing
+  - path: test_tasks/test_tasks/DMAIC-Quality-Analysis
+  - path: test_tasks/test_tasks/Document-Fraud-Detection
+  - path: test_tasks/test_tasks/Embedded-Data-Repair
+  - path: test_tasks/test_tasks/Financial-Statement-Rolling
+  - path: test_tasks/test_tasks/Healthcare-Cost-Benefit-Analysis
+  - path: test_tasks/test_tasks/HWPX-Document-Automation
+  - path: test_tasks/test_tasks/Industry-Correlation-Analysis
+  - path: test_tasks/test_tasks/Inventory-&-Finance-Integration
+  - path: test_tasks/test_tasks/Medical-Data-Standardization
+  - path: test_tasks/test_tasks/OCR-Data-Extraction
+  - path: test_tasks/test_tasks/Operational-Recovery-Planning
+  - path: test_tasks/test_tasks/PPT-Formatting-Optimization
+  - path: test_tasks/test_tasks/Production-Capacity-Planning
+  - path: test_tasks/test_tasks/Sales-Pivot-Analysis
+  - path: test_tasks/test_tasks/SEC-13F-Financial-Analysis
+  - path: test_tasks/test_tasks/Supply-Chain-Replenishment
+  - path: test_tasks/test_tasks/Weighted-Risk-Assessment
